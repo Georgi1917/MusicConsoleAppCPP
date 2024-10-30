@@ -1,0 +1,71 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "E:\\CPP_Projects\\MusicApp\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{CA26CB98-885C-4CCD-951F-2EB97ECAE539}|MusicApp.vcxproj|E:\\CPP_Projects\\MusicApp\\main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{CA26CB98-885C-4CCD-951F-2EB97ECAE539}|MusicApp.vcxproj|solutionrelative:main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CA26CB98-885C-4CCD-951F-2EB97ECAE539}|MusicApp.vcxproj|E:\\CPP_Projects\\MusicApp\\SongClass.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{CA26CB98-885C-4CCD-951F-2EB97ECAE539}|MusicApp.vcxproj|solutionrelative:SongClass.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CA26CB98-885C-4CCD-951F-2EB97ECAE539}|MusicApp.vcxproj|E:\\CPP_Projects\\MusicApp\\PlaylistClass.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{CA26CB98-885C-4CCD-951F-2EB97ECAE539}|MusicApp.vcxproj|solutionrelative:PlaylistClass.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 2,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "SongClass.h",
+              "DocumentMoniker": "E:\\CPP_Projects\\MusicApp\\SongClass.h",
+              "RelativeDocumentMoniker": "SongClass.h",
+              "ToolTip": "E:\\CPP_Projects\\MusicApp\\SongClass.h",
+              "RelativeToolTip": "SongClass.h",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAAvAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2024-10-30T17:49:39.189Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "PlaylistClass.h",
+              "DocumentMoniker": "E:\\CPP_Projects\\MusicApp\\PlaylistClass.h",
+              "RelativeDocumentMoniker": "PlaylistClass.h",
+              "ToolTip": "E:\\CPP_Projects\\MusicApp\\PlaylistClass.h",
+              "RelativeToolTip": "PlaylistClass.h",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAOAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2024-10-30T17:41:44.156Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "main.cpp",
+              "DocumentMoniker": "E:\\CPP_Projects\\MusicApp\\main.cpp",
+              "RelativeDocumentMoniker": "main.cpp",
+              "ToolTip": "E:\\CPP_Projects\\MusicApp\\main.cpp",
+              "RelativeToolTip": "main.cpp",
+              "ViewState": "AgIAAHsAAAAAAAAAAAAewIsAAAAcAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2024-10-30T16:26:51.475Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
