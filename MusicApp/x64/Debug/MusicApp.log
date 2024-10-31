@@ -1,4 +1,6 @@
-﻿  main.cpp
-E:\CPP_Projects\MusicApp\main.cpp(24,1): warning C4715: 'GetSong': not all control paths return a value
-E:\CPP_Projects\MusicApp\main.cpp(67,1): warning C4715: 'mapCommand': not all control paths return a value
+﻿  functions.cpp
+  main.cpp
+  Generating Code...
+E:\CPP_Projects\MusicApp\functions.cpp(73,1): warning C4715: 'mapCommand': not all control paths return a value
+E:\CPP_Projects\MusicApp\functions.cpp(30,1): warning C4715: 'GetSong': not all control paths return a value
   MusicApp.vcxproj -> E:\CPP_Projects\MusicApp\x64\Debug\MusicApp.exe

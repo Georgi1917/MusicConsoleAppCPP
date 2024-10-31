@@ -1,80 +1,10 @@
 #include <iostream>
 #include <cstdlib>
 #include <vector>
+#include <Windows.h>
 #include "SongClass.h"
+#include "functions.h"
 using namespace std;
-
-int songId = 1;
-
-const int numOfCommands{ 8 };
-
-
-void DeleteSong(Song song, vector<Song>& songs) {
-
-	auto el = remove(songs.begin(), songs.end(), song);
-	songs.erase(el, songs.end());
-
-}
-
-
-Song GetSong(int id, vector<Song> songs) {
-
-	for (auto& el : songs) if (el.id == id) return el;
-
-}
-
-
-void ShowAllSongs(vector<Song> songs) {
-
-	cout << "Current Songs in Library: " << endl;
-
-	for (int i{}; i < songs.size(); ++i) {
-		cout << "Song " << i + 1 << endl;
-		cout << "ID --->      " << songs[i].id << endl;
-		cout << "Name --->    " << songs[i].name << endl;
-		cout << "Author --->  " << songs[i].author << endl;
-		cout << "Address ---> " << songs[i].address << endl;
-	}
-}
-
-Song CreateSongInstance(string name, string author, string addr) {
-	cout << "Name: ";
-	cin >> name;
-	cout << "Author: ";
-	cin >> author;
-	cout << "Address: ";
-	cin >> addr;
-
-	Song song(songId, name, author, addr);
-
-	songId++;
-
-	return song;
-}
-
-
-void ShowCommands(const string(&arr)[numOfCommands]) {
-	cout << "The valid commands are: " << endl;
-
-	for (auto el : arr) cout << "--->" << el << endl;
-}
-
-
-int mapCommand(string command, const string (&arr)[numOfCommands]) {
-
-	for (int i{}; i < numOfCommands; ++i) if (arr[i] == command) return i + 1;
-
-}
-
-
-int checkForValidCommand(string command, const string (&arr)[numOfCommands]) {
-
-	for (auto el : arr) if (el == command) return 1;
-
-	return 0;
-
-}
-
 
 int main() {
 
@@ -83,12 +13,13 @@ int main() {
 	cout << "3. Add Song to Playlist." << endl;
 	cout << "4. Show all playlists" << endl;
 	cout << "5. Show all songs" << endl;
-	cout << "6. Delete Song" << endl;
-	cout << "7. Help" << endl;
-	cout << "8. End" << endl;
+	cout << "6. Play Song" << endl;
+	cout << "7. Delete Song" << endl;
+	cout << "8. Help" << endl;
+	cout << "9. End" << endl;
 
 	string command;
-	const string validCommands[numOfCommands] = { "CreatePlaylist", "CreateSong", "AddSong", "ShowAllPlaylists", "ShowAllSongs", "DeleteSong", "Help", "End"};
+	const string validCommands[numOfCommands] = { "CreatePlaylist", "CreateSong", "AddSong", "ShowAllPlaylists", "ShowAllSongs","PlaySong", "DeleteSong", "Help", "End"};
 	vector<Song> songs;
 
 	string name, author, address;
@@ -126,7 +57,27 @@ int main() {
 			ShowAllSongs(songs);
 
 			break;
-		case 6:
+		case 6: {
+			int id;
+
+			if (songs.size() > 0) {
+				do {
+					cout << "Song ID: ";
+					cin >> id;
+				} while (id >= songId || id < songs[0].id);
+
+				Song song = GetSong(id, songs);
+
+				PlaySong(song.address);
+
+			}
+			else cout << "You have no Songs in yout Library!" << endl;
+
+			break;
+			
+		}
+			
+		case 7:
 			int id;
 
 			if (songs.size() > 0) {
@@ -143,11 +94,11 @@ int main() {
 			else cout << "You have no Songs in your Library!" << endl;
 
 			break;
-		case 7:
+		case 8:
 			ShowCommands(validCommands);
 
 			break;
-		case 8:
+		case 9:
 			exit(0);
 			break;
 		}
