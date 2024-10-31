@@ -1,6 +1,54 @@
 #include "functions.h"
 
 int songId = 1;
+int playlistId = 1;
+
+
+void AddSongToPlaylist(Song song, Playlist& playlist) {
+
+	playlist.songs.push_back(song);
+
+}
+
+
+Playlist GetPlaylist(int id, vector<Playlist> playlists) {
+
+	for (auto el : playlists) if (el.id == id) return el;
+
+}
+
+
+void ShowAllPlaylists(vector<Playlist> playlists) {
+
+	if (playlists.size() > 0) {
+		for (int i{}; i < playlists.size(); ++i) {
+			cout << "Playlist: " << i + 1 << endl;
+			cout << "---" << "ID:    " << playlists[i].id << endl;
+			cout << "---" << "Name:  " << playlists[i].name << endl;
+			cout << "---" << "Songs: ";
+			if (playlists[i].songs.size() > 0) {
+				for (auto el : playlists[i].songs) cout << el.name << ", ";
+			}
+			else cout << "This Playlist has no Songs." << endl;
+		}
+	}
+	else cout << "You have no Playlists!" << endl;
+
+}
+
+
+Playlist CreatePlaylist(string name) {
+
+	cout << "Playlist Name: ";
+	cin >> name;
+
+	Playlist playlist(playlistId, name);
+	playlistId++;
+
+	return playlist;
+
+}
+
 
 void PlaySong(string addr) {
 

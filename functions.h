@@ -6,12 +6,19 @@
 #include <cstdlib>
 #include <vector>
 #include <Windows.h>
+#include "PlaylistClass.h"
 #include "SongClass.h"
 using namespace std;
 
 const int numOfCommands{ 9 };
-extern int songId;
 
+extern int songId;
+extern int playlistId;
+
+void AddSongToPlaylist(Song song, Playlist playlist);
+Playlist GetPlaylist(int id, vector<Playlist> playlists);
+void ShowAllPlaylists(vector<Playlist> playlists);
+Playlist CreatePlaylist(string name);
 void PlaySong(string addr);
 void DeleteSong(Song song, vector<Song>& songs);
 Song GetSong(int id, vector<Song> songs);

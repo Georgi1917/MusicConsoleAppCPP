@@ -3,6 +3,7 @@
 #include <vector>
 #include <Windows.h>
 #include "SongClass.h"
+#include "PlaylistClass.h"
 #include "functions.h"
 using namespace std;
 
@@ -19,8 +20,9 @@ int main() {
 	cout << "9. End" << endl;
 
 	string command;
-	const string validCommands[numOfCommands] = { "CreatePlaylist", "CreateSong", "AddSong", "ShowAllPlaylists", "ShowAllSongs","PlaySong", "DeleteSong", "Help", "End"};
+	const string validCommands[numOfCommands] = { "CreatePlaylist", "CreateSong", "AddSongToPlaylist", "ShowAllPlaylists", "ShowAllSongs","PlaySong", "DeleteSong", "Help", "End"};
 	vector<Song> songs;
+	vector<Playlist> playlists;
 
 	string name, author, address;
 
@@ -34,9 +36,15 @@ int main() {
 		int mappedCommand = mapCommand(command, validCommands);
 
 		switch (mappedCommand) {
-		case 1:
-			cout << "The current command is: " << command << endl;
+		case 1: {
+			string pName;
+
+			Playlist playlist = CreatePlaylist(pName);
+
+			playlists.push_back(playlist);
+
 			break;
+		}
 		case 2:
 		{
 
@@ -47,11 +55,28 @@ int main() {
 			break;
 
 		}
-		case 3:
-			cout << "The current command is: " << command << endl;
+		case 3: {
+			int sId, pId;
+
+			do {
+				cout << "Playlist ID: ";
+				cin >> pId;
+			} while (pId >= playlistId || pId < playlists[0].id);
+
+			do {
+				cout << "Song ID: ";
+				cin >> sId;
+			} while (sId >= songId || sId < songs[0].id);
+
+			Playlist playlist = GetPlaylist(pId, playlists);
+			Song song = GetSong(sId, songs);
+
+			AddSongToPlaylist(song, playlist);
+
 			break;
+		}
 		case 4:
-			cout << "The current command is: " << command << endl;
+			ShowAllPlaylists(playlists);
 			break;
 		case 5:
 			ShowAllSongs(songs);
