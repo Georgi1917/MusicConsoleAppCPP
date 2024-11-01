@@ -4,9 +4,9 @@ int songId = 1;
 int playlistId = 1;
 
 
-void PlayPlaylist(Playlist playlist) {
+void PlayPlaylist(Playlist& playlist) {
 
-	for (auto el : playlist.songs) {
+	for (auto& el : playlist.songs) {
 		string path = el.address;
 		
 		PlaySong(path);

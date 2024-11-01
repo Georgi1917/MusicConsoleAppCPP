@@ -15,7 +15,7 @@ const int numOfCommands{ 10 };
 extern int songId;
 extern int playlistId;
 
-void PlayPlaylist(Playlist playlist);
+void PlayPlaylist(Playlist& playlist);
 void AddSongToPlaylist(Song song, Playlist& playlist);
 Playlist& GetPlaylist(int id, vector<Playlist>& playlists);
 void ShowAllPlaylists(vector<Playlist> playlists);

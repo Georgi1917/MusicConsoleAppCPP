@@ -109,10 +109,22 @@ int main() {
 			
 		}
 
-		case 7:
-			cout << "The command is: " << command << endl;
+		case 7: {
+			int id;
+
+			if (playlists.size() > 0) {
+				do {
+					cout << "Playlist ID: ";
+					cin >> id;
+				} while (id >= playlistId || id < playlists[0].id);
+
+				Playlist& playlist = GetPlaylist(id, playlists);
+
+				PlayPlaylist(playlist);
+			}
+			else cout << "Please create Playlists first!" << endl;
 			break;
-			
+		}
 		case 8:
 			int id;
 
