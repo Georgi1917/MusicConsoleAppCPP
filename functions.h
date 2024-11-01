@@ -10,13 +10,14 @@
 #include "SongClass.h"
 using namespace std;
 
-const int numOfCommands{ 9 };
+const int numOfCommands{ 10 };
 
 extern int songId;
 extern int playlistId;
 
-void AddSongToPlaylist(Song song, Playlist playlist);
-Playlist GetPlaylist(int id, vector<Playlist> playlists);
+void PlayPlaylist(Playlist playlist);
+void AddSongToPlaylist(Song song, Playlist& playlist);
+Playlist& GetPlaylist(int id, vector<Playlist>& playlists);
 void ShowAllPlaylists(vector<Playlist> playlists);
 Playlist CreatePlaylist(string name);
 void PlaySong(string addr);

@@ -15,12 +15,13 @@ int main() {
 	cout << "4. Show all playlists" << endl;
 	cout << "5. Show all songs" << endl;
 	cout << "6. Play Song" << endl;
-	cout << "7. Delete Song" << endl;
-	cout << "8. Help" << endl;
-	cout << "9. End" << endl;
+	cout << "7. Play Playlist" << endl;
+	cout << "8. Delete Song" << endl;
+	cout << "9. Help" << endl;
+	cout << "10. End" << endl;
 
 	string command;
-	const string validCommands[numOfCommands] = { "CreatePlaylist", "CreateSong", "AddSongToPlaylist", "ShowAllPlaylists", "ShowAllSongs","PlaySong", "DeleteSong", "Help", "End"};
+	const string validCommands[numOfCommands] = { "CreatePlaylist", "CreateSong", "AddSongToPlaylist", "ShowAllPlaylists", "ShowAllSongs","PlaySong", "PlayPlaylist", "DeleteSong", "Help", "End"};
 	vector<Song> songs;
 	vector<Playlist> playlists;
 
@@ -33,6 +34,7 @@ int main() {
 			cout << "Invalid command! Try again!" << endl;
 			continue;
 		}
+
 		int mappedCommand = mapCommand(command, validCommands);
 
 		switch (mappedCommand) {
@@ -56,22 +58,27 @@ int main() {
 
 		}
 		case 3: {
-			int sId, pId;
+			if (playlists.size() > 0 && songs.size() > 0) {
+				int sId, pId;
 
-			do {
-				cout << "Playlist ID: ";
-				cin >> pId;
-			} while (pId >= playlistId || pId < playlists[0].id);
+				do {
+					cout << "Playlist ID: ";
+					cin >> pId;
+				} while (pId >= playlistId || pId < playlists[0].id);
 
-			do {
-				cout << "Song ID: ";
-				cin >> sId;
-			} while (sId >= songId || sId < songs[0].id);
+				do {
+					cout << "Song ID: ";
+					cin >> sId;
+				} while (sId >= songId || sId < songs[0].id);
 
-			Playlist playlist = GetPlaylist(pId, playlists);
-			Song song = GetSong(sId, songs);
+				Playlist& playlist = GetPlaylist(pId, playlists);
+				Song song = GetSong(sId, songs);
 
-			AddSongToPlaylist(song, playlist);
+				cout << "Playlist Name: " << playlist.name << ", " << "Song Name: " << song.name << endl;
+
+				AddSongToPlaylist(song, playlist);
+			}
+			else cout << "Please create Songs and Playlists first!" << endl;
 
 			break;
 		}
@@ -101,8 +108,12 @@ int main() {
 			break;
 			
 		}
-			
+
 		case 7:
+			cout << "The command is: " << command << endl;
+			break;
+			
+		case 8:
 			int id;
 
 			if (songs.size() > 0) {
@@ -119,11 +130,11 @@ int main() {
 			else cout << "You have no Songs in your Library!" << endl;
 
 			break;
-		case 8:
+		case 9:
 			ShowCommands(validCommands);
 
 			break;
-		case 9:
+		case 10:
 			exit(0);
 			break;
 		}

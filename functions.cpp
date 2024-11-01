@@ -4,6 +4,17 @@ int songId = 1;
 int playlistId = 1;
 
 
+void PlayPlaylist(Playlist playlist) {
+
+	for (auto el : playlist.songs) {
+		string path = el.address;
+		
+		PlaySong(path);
+	}
+
+}
+
+
 void AddSongToPlaylist(Song song, Playlist& playlist) {
 
 	playlist.songs.push_back(song);
@@ -11,9 +22,9 @@ void AddSongToPlaylist(Song song, Playlist& playlist) {
 }
 
 
-Playlist GetPlaylist(int id, vector<Playlist> playlists) {
+Playlist& GetPlaylist(int id, vector<Playlist>& playlists) {
 
-	for (auto el : playlists) if (el.id == id) return el;
+	for (auto& el : playlists) if (el.id == id) return el;
 
 }
 
