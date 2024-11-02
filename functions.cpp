@@ -4,6 +4,14 @@ int songId = 1;
 int playlistId = 1;
 
 
+void RemoveSongFromPlaylist(Song song, Playlist& playlist) {
+
+	auto el = remove(playlist.songs.begin(), playlist.songs.end(), song);
+	playlist.songs.erase(el, playlist.songs.end());
+
+}
+
+
 void PlayPlaylist(Playlist& playlist) {
 
 	for (auto& el : playlist.songs) {
@@ -38,7 +46,11 @@ void ShowAllPlaylists(vector<Playlist> playlists) {
 			cout << "---" << "Name:  " << playlists[i].name << endl;
 			cout << "---" << "Songs: ";
 			if (playlists[i].songs.size() > 0) {
-				for (auto el : playlists[i].songs) cout << el.name << ", ";
+				for (int j{}; j < playlists[i].songs.size(); ++j) {
+					if (j + 1 == playlists[i].songs.size()) cout << playlists[i].songs[j].name;
+					else cout << playlists[i].songs[j].name << ", ";
+				}
+				cout << endl;
 			}
 			else cout << "This Playlist has no Songs." << endl;
 		}
