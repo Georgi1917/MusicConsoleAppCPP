@@ -15,6 +15,10 @@ class Playlist {
 
 		Playlist(const int& id, const string& n) :
 			id(id), name(n) {};
+
+		bool operator==(const Playlist& other) const {
+			return id == other.id;
+		}
 };
 
 #endif

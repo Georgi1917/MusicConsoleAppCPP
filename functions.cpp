@@ -2,6 +2,24 @@
 
 int songId = 1;
 int playlistId = 1;
+string musicFolder = "";
+
+
+void AddMusicFolder(string path) {
+
+	musicFolder = path;
+
+	cout << "Current Music Folder: " << musicFolder << endl;
+
+}
+
+
+void DeletePlaylist(Playlist playlist, vector<Playlist>& playlists) {
+
+	auto el = remove(playlists.begin(), playlists.end(), playlist);
+	playlists.erase(el, playlists.end());
+
+}
 
 
 void RemoveSongFromPlaylist(Song song, Playlist& playlist) {
@@ -76,6 +94,7 @@ Playlist CreatePlaylist(string name) {
 void PlaySong(string addr) {
 
 	string path = addr;
+
 	string openCommand = "open \"" + path + "\" type mpegvideo alias mp3";
 
 	mciSendStringA(openCommand.c_str(), NULL, 0, NULL);
@@ -122,7 +141,9 @@ Song CreateSongInstance(string name, string author, string addr) {
 	cout << "Address: ";
 	cin >> addr;
 
-	Song song(songId, name, author, addr);
+	string pathToSong = musicFolder + addr;
+
+	Song song(songId, name, author, pathToSong);
 
 	songId++;
 

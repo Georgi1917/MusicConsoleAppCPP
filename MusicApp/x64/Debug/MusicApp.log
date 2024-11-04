@@ -1,5 +1,1 @@
-﻿  functions.cpp
-D:\CPPProjects\MusicConsoleAppCPP\functions.cpp(37,1): warning C4715: 'GetPlaylist': not all control paths return a value
-D:\CPPProjects\MusicConsoleAppCPP\functions.cpp(101,1): warning C4715: 'GetSong': not all control paths return a value
-D:\CPPProjects\MusicConsoleAppCPP\functions.cpp(144,1): warning C4715: 'mapCommand': not all control paths return a value
-  MusicApp.vcxproj -> D:\CPPProjects\MusicConsoleAppCPP\x64\Debug\MusicApp.exe
+﻿  MusicApp.vcxproj -> E:\CPP_Projects\MusicConsoleAppCPP\x64\Debug\MusicApp.exe

@@ -17,12 +17,14 @@ int main() {
 	cout << "6. Play Song" << endl;
 	cout << "7. Play Playlist" << endl;
 	cout << "8. Delete Song" << endl;
-	cout << "9. Remove Song from Playlist" << endl;
-	cout << "10. Help" << endl;
-	cout << "11. End" << endl;
+	cout << "9. Delete Playlist" << endl;
+	cout << "10. Remove Song from Playlist" << endl;
+	cout << "11. Add Music Folder" << endl;
+	cout << "12. Help" << endl;
+	cout << "13. End" << endl;
 
 	string command;
-	const string validCommands[numOfCommands] = { "CreatePlaylist", "CreateSong", "AddSongToPlaylist", "ShowAllPlaylists", "ShowAllSongs","PlaySong", "PlayPlaylist", "DeleteSong", "RemoveSongFromPlaylist", "Help", "End"};
+	const string validCommands[numOfCommands] = { "CreatePlaylist", "CreateSong", "AddSongToPlaylist", "ShowAllPlaylists", "ShowAllSongs","PlaySong", "PlayPlaylist", "DeleteSong", "DeletePlaylist", "RemoveSongFromPlaylist", "AddMusicFolder", "Help", "End"};
 	vector<Song> songs;
 	vector<Playlist> playlists;
 
@@ -141,8 +143,28 @@ int main() {
 			else cout << "You have no Songs in your Library!" << endl;
 
 			break;
-
+		
 		case 9: {
+			int id;
+
+			if (playlists.size() > 0) {
+				do {
+					cout << "Playlist ID: ";
+					cin >> id;
+
+				} while (id >= playlistId || id < playlists[0].id);
+
+				Playlist& playlist = GetPlaylist(id, playlists);
+
+				DeletePlaylist(playlist, playlists);
+			}
+
+			else cout << "You have no Playlists!" << endl;
+
+			break;
+		}
+
+		case 10: {
 			if (songs.size() > 0 && playlists.size() > 0) {
 				int sId, pId;
 				cout << "Playlist ID: ";
@@ -161,11 +183,21 @@ int main() {
 			break;
 		}
 
-		case 10:
+		case 11: {
+			string musicFolderAddr;
+
+			cout << "Please enter the address of your folder: ";
+			cin >> musicFolderAddr;
+
+			AddMusicFolder(musicFolderAddr);
+			break;
+		}
+
+		case 12:
 			ShowCommands(validCommands);
 
 			break;
-		case 11:
+		case 13:
 			exit(0);
 			break;
 		}
